@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FORÇAR MODO CLARO (Corrige o problema do botão marrom no celular) -->
+    <meta name="color-scheme" content="light">
+    
+    <title>Ricardo Borges | Identidade & Direção 2026</title>
+    <meta name="description" content="Clareza interna e direção estratégica para você entrar em 2026 sem repetir padrões.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- SwiperJS CSS (Para o Carrossel) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            // Importante: Desativa o modo escuro automático do Tailwind se houver
+            darkMode: 'class', 
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#00204E',
+                            800: '#002b63',
+                            700: '#0f3a7a',
+                        },
+                        gold: {
+                            DEFAULT: '#CC9933',
+                            light: '#dcb158',
+                            dark: '#a67c2a',
+                        },
+                        beige: {
+                            DEFAULT: '#DAC4A2',
+                            light: '#f4efe6',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'compass-pattern': "url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'%23CC9933\\' fill-opacity=\\'0.05\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        /* FORÇAR MODO CLARO NO CSS (Garante cores originais) */
+        :root {
+            color-scheme: light;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Premium Gradient Text */
+        .text-gradient-gold {
+            background: linear-gradient(to right, #CC9933, #e8c775, #CC9933);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Compass Animation */
+        .compass-spin {
+            animation: spin-slow 25s linear infinite;
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Button Hover Effect */
+        .btn-premium {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-premium::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        .btn-premium:hover::after {
+            left: 100%;
+        }
+
+        /* Fade In Animation on Scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Accordion Styles */
+        .accordion-content {
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-content.open {
+            opacity: 1;
+        }
+
+        /* Marquee Animation (Faixa de Texto Rolante) */
+        .animate-marquee {
+            display: flex;
+            width: max-content; /* Garante que o conteúdo fique em uma linha */
+            animation: marquee 20s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Move metade (já que o conteúdo é duplicado) */
+        }
+
+        /* Swiper Pagination (Pontinhos do Carrossel) */
+        .swiper-pagination-bullet {
+            background-color: #CC9933; /* Cor Dourada */
+            opacity: 0.4;
+        }
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "swiper/": "https://aistudiocdn.com/swiper@^12.0.3/"
+  }
+}
+</script>
+</head>
+<body class="font-sans text-gray-700 bg-beige-light antialiased overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-navy-900 border-b border-white/10 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center gap-4">
+            <!-- Logo Imagem com Fallback -->
+            <a href="#" class="block relative flex-shrink-0">
+                <img src="http://midias.lcai.com.br/images/2025/11/24/Logo-RB-Branco.png" 
+                     alt="Ricardo Borges" 
+                     class="h-8 md:h-12 w-auto object-contain"
+                     onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
+                
+                <!-- Fallback de texto -->
+                <div id="logo-fallback" class="hidden text-white font-serif tracking-widest text-xl uppercase font-bold">
+                    Ricardo <span class="text-gold">Borges</span>
+                </div>
+            </a>
+            <nav class="hidden md:flex gap-8 text-sm font-medium tracking-wide text-gray-300">
+                <a href="#sobre" class="hover:text-gold transition-colors">O Processo</a>
+                <a href="#relatorios" class="hover:text-gold transition-colors">Relatórios</a>
+                <a href="#mentor" class="hover:text-gold transition-colors">Mentor</a>
+            </nav>
+            <a href="#oferta" class="bg-transparent border border-gold text-gold px-4 py-2 text-xs md:text-sm md:px-6 font-semibold rounded-full hover:bg-gold hover:text-navy-900 transition-all duration-300 flex-shrink-0 text-center whitespace-nowrap">
+                GARANTIR VAGA
+            </a>
+        </div>
+    </header>
+
+    <!-- Dobra 1: Hero Section -->
+    <!-- Ajuste: Reduzi o pt-32 para pt-28 no mobile e pt-20 para pt-32 no desktop para equilibrar o espaço do header -->
+    <section class="relative min-h-[85vh] md:min-h-screen flex items-end bg-navy-900 text-white pt-24 md:pt-32 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden pb-0">
+            <div class="absolute inset-0 bg-compass-pattern opacity-10"></div>
+            <!-- BÚSSOLA GIRATÓRIA: Opacidade 5% e mais à direita -->
+            <div class="absolute top-1/2 left-1/2 md:left-3/4 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
+                <img src="http://midias.lcai.com.br/images/2025/11/24/Logo-RB-Branco-1.png" 
+                     alt="Bússola de Fundo" 
+                     class="compass-spin opacity-5 w-[90%] md:w-[600px] max-w-none">
+            </div>
+        </div>
+
+        <!-- Layout Flexbox: Controle total da ordem no Mobile -->
+        <div class="container mx-auto px-6 relative z-10 flex flex-col md:grid md:grid-cols-2 md:gap-12 items-center h-full justify-end md:justify-center pb-8 md:pb-0">
+            
+            <!-- 1. BLOCO DE CONTEÚDO (Texto + Botão) -->
+            <!-- Mobile: Ordem ajustada internamente / Desktop: Coluna da Esquerda -->
+            <div class="reveal active w-full md:text-left text-center flex flex-col z-30 mb-0 md:mb-12">
+                
+                <!-- Tag Black Friday -->
+                <div class="self-center md:self-start inline-block px-3 py-1 border border-gold/30 text-gold text-xs tracking-widest mb-4 bg-navy-800/50">
+                    BLACK FRIDAY 2025
+                </div>
+
+                <!-- Título -->
+                <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-4">
+                    A decisão mais <span class="italic text-gold">importante</span> da sua carreira é entender <br class="hidden md:block">quem você é.
+                </h1>
+
+                <!-- Subtítulo (Agora logo abaixo do título no mobile também) -->
+                <p class="text-sm md:text-xl text-gray-300 font-light mb-6 md:mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+                    Clareza interna e direção estratégica para você entrar em 2026 sem repetir padrões.
+                </p>
+
+                <!-- Imagem no Mobile (Aparece aqui no meio, entre o texto e o botão) -->
+                <div class="md:hidden relative w-full flex justify-center mt-[-20px] mb-[-20px] pointer-events-none z-0">
+                    <!-- FOTO ATUALIZADA (Versão Mobile) -->
+                    <img src="http://midias.lcai.com.br/images/2025/11/24/Design-sem-nome-22-2.webp" 
+                         alt="Ricardo Borges" 
+                         class="w-[90%] max-w-[350px] h-auto object-contain drop-shadow-2xl transform translate-y-4">
+                </div>
+
+                <!-- Botão CTA (Abaixo da imagem no mobile) -->
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 relative z-30 mt-4 md:mt-0">
+                    <a href="#oferta" class="btn-premium bg-gold text-navy-900 px-8 py-4 font-bold text-center rounded-full shadow-lg shadow-gold/20 hover:shadow-gold/40 hover:-translate-y-1 transform transition-all w-full md:w-auto">
+                        QUERO CLAREZA E DIREÇÃO
+                    </a>
+                </div>
+                
+                <p class="mt-4 text-xs md:text-sm text-gray-400">Condição única para quem quer decidir com maturidade.</p>
+            </div>
+
+            <!-- 2. FOTO DO EXPERT (Apenas Desktop) -->
+            <!-- Desktop: Coluna da Direita / Mobile: Escondida (pois já foi mostrada acima) -->
+            <div class="hidden md:flex reveal delay-200 relative z-20 justify-center md:justify-end pointer-events-none h-full items-end">
+                <!-- FOTO ATUALIZADA (Versão Desktop) -->
+                <img src="http://midias.lcai.com.br/images/2025/11/24/Design-sem-nome-22-2.webp" 
+                     alt="Ricardo Borges" 
+                     class="w-[110%] max-w-none h-auto object-contain drop-shadow-2xl transform scale-110 translate-y-10 origin-bottom">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAIXA DE ROLAGEM (MARQUEE) -->
+    <!-- Z-index alto para garantir que fique sobre o fundo mas sob a foto se necessário -->
+    <div class="bg-gold overflow-hidden py-3 border-y border-white/20 relative z-20 shadow-lg">
+        <div class="animate-marquee hover:pause">
+            <!-- Bloco 1 -->
+            <div class="flex items-center gap-8 px-4">
+                <span class="text-navy-900 font-bold uppercase tracking-widest text-sm md:text-base flex items-center gap-2">⚠️ VAGAS LIMITADAS</span>
+                <span class="text-navy-900/40 text-xs">•</span>
+                <span class="text-navy-900 font-bold uppercase tracking-widest text-sm md:text-base flex items-center gap-2">⚠️ BLACK FRIDAY 2025</span>
+                <span class="text-navy-900/40 text-xs">•</span>
+                <span class="text-navy-900 font-bold uppercase tracking-widest text-sm md:text-base flex items-center gap-2">⚠️ VAGAS LIMITADAS</span>
+                <span class="text-navy-900/40 text-xs">•</span>
+                <span class="text-navy-900 font-bold uppercase tracking-widest text-sm md:text-base flex items-center gap-2">⚠️ CONDIÇÃO ÚNICA</span>
+                <span class="text-navy-900/40 text-xs">•</span>
+                <span class="text-navy-900 font-bold uppercase tracking-widest text-sm md:text-base flex items-center gap-2">⚠️ VAGAS LIMITADAS</span>
+                <span class="text-navy-900/40 text-xs">•</span>
+                <span class="text-navy-900 font-bold uppercase tracking-widest text-sm md:text-base flex items-center gap-2">⚠️ BLACK FRIDAY 2025</span>
+                <span class="text-navy-900/40 text-xs">•</span>
+            </div>
+            <!-- Bloco 2 (Duplicado para o efeito infinito) -->
+            <div class="flex items-center gap-8 px-4">
+                <span class="text-navy-900 font-bold uppercase tracking-widest text-sm md:text-base flex items-center gap-2">⚠️ VAGAS LIMITADAS</span>
+                <span class="text-navy-900/40 text-xs">•</span>
+                <span class="text-navy-900 font-bold uppercase tracking-widest text-sm md:text-base flex items-center gap-2">⚠️ BLACK FRIDAY 2025</span>
+                <span class="text-navy-900/40 text-xs">•</span>
+                <span class="text-navy-900 font-bold uppercase tracking-widest text-sm md:text-base flex items-center gap-2">⚠️ VAGAS LIMITADAS</span>
+                <span class="text-navy-900/40 text-xs">•</span>
+                <span class="text-navy-900 font-bold uppercase tracking-widest text-sm md:text-base flex items-center gap-2">⚠️ CONDIÇÃO ÚNICA</span>
+                <span class="text-navy-900/40 text-xs">•</span>
+                <span class="text-navy-900 font-bold uppercase tracking-widest text-sm md:text-base flex items-center gap-2">⚠️ VAGAS LIMITADAS</span>
+                <span class="text-navy-900/40 text-xs">•</span>
+                <span class="text-navy-900 font-bold uppercase tracking-widest text-sm md:text-base flex items-center gap-2">⚠️ BLACK FRIDAY 2025</span>
+                <span class="text-navy-900/40 text-xs">•</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dobra 2: O Combo -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <h2 class="font-serif text-3xl md:text-4xl text-navy-900 mb-6">O que é o <span class="italic text-gold">Combo</span> Identidade & Direção</h2>
+                <p class="text-lg text-gray-600 mb-12">Um processo completo para organizar sua identidade e ganhar direção prática para 2026.</p>
+                
+                <div class="grid md:grid-cols-2 gap-6 text-left">
+                    <div class="bg-beige-light p-8 border-l-4 border-gold">
+                        <h3 class="font-bold text-navy-900 text-xl mb-2">Análise de Identidade</h3>
+                        <p class="text-gray-600">Devolutiva individual + quatro relatórios profundos sobre seu perfil.</p>
+                    </div>
+                    <div class="bg-beige-light p-8 border-l-4 border-gold">
+                        <h3 class="font-bold text-navy-900 text-xl mb-2">Dossiê Pessoal</h3>
+                        <p class="text-gray-600">Mapeamento de padrões, forças, âncoras e motivadores reais.</p>
+                    </div>
+                    <div class="bg-beige-light p-8 border-l-4 border-gold">
+                        <h3 class="font-bold text-navy-900 text-xl mb-2">Direcionamento</h3>
+                        <p class="text-gray-600">Visão estratégica profissional para tomadas de decisões mais firmes.</p>
+                    </div>
+                    <div class="bg-beige-light p-8 border-l-4 border-gold">
+                        <h3 class="font-bold text-navy-900 text-xl mb-2">Ebook Linkedin Estratégico</h3>
+                        <p class="text-gray-600">Clareza interna convertida em posicionamento externo de autoridade.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dobra 3: Benefícios -->
+    <section class="py-20 bg-navy-900 text-white relative">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-30"></div>
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <h2 class="font-serif text-3xl md:text-4xl mb-8 leading-tight">O que muda quando você <span class="text-gold italic">organiza</span> sua identidade</h2>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-4">
+                        <svg class="w-6 h-6 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span class="text-gray-300">Clareza sobre padrões, forças e limites.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <svg class="w-6 h-6 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span class="text-gray-300">Decisões mais sólidas e coerentes.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <svg class="w-6 h-6 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span class="text-gray-300">Fim da autossabotagem silenciosa.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <svg class="w-6 h-6 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span class="text-gray-300">Comunicação mais madura e intencional.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <svg class="w-6 h-6 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span class="text-gray-300">Melhora nos relacionamentos profissionais.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <svg class="w-6 h-6 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span class="text-gray-300">Direção para promoção, recolocação ou transição.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <svg class="w-6 h-6 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <span class="text-gray-300">Lucidez para construir 2026 com consciência.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="relative reveal delay-200">
+                <div class="border border-gold/30 p-8 rounded bg-navy-800/50 backdrop-blur text-center">
+                    <svg class="w-16 h-16 text-gold mx-auto mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                    <h3 class="font-serif text-2xl text-white mb-4">Estabilidade Emocional</h3>
+                    <p class="text-gray-400">O resultado final não é apenas sucesso externo, mas a paz interna de saber que você está no caminho certo.</p>
+                </div>
+                <!-- Decorative Elements -->
+                <div class="absolute -z-10 -top-4 -right-4 w-full h-full border border-gray-700/50 rounded"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dobra 4: Os Relatórios -->
+    <section id="relatorios" class="py-20 bg-beige-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="font-serif text-3xl md:text-4xl text-navy-900 mb-4">Os 4 relatórios que revelam <span class="italic text-gold">quem você é</span></h2>
+                <p class="text-gray-600">— e para onde faz sentido ir.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 shadow-lg border-t-4 border-navy-900 hover:-translate-y-2 transition-transform duration-300 reveal">
+                    <div class="text-gold font-serif text-5xl mb-4 opacity-20">01</div>
+                    <h3 class="font-bold text-navy-900 text-lg mb-3">Perfil Pessoal (DISC)</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Seu comportamento sob pressão, como decide, como se comunica e onde se desgasta.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-8 shadow-lg border-t-4 border-gold hover:-translate-y-2 transition-transform duration-300 reveal delay-100">
+                    <div class="text-gold font-serif text-5xl mb-4 opacity-20">02</div>
+                    <h3 class="font-bold text-navy-900 text-lg mb-3">Forças Pessoais</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Seus talentos naturais e como utilizá-los para aumentar sua performance e bem-estar.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-8 shadow-lg border-t-4 border-navy-900 hover:-translate-y-2 transition-transform duration-300 reveal delay-200">
+                    <div class="text-gold font-serif text-5xl mb-4 opacity-20">03</div>
+                    <h3 class="font-bold text-navy-900 text-lg mb-3">Linguagem de Valorização</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">O que faz você se sentir visto e motivado — essencial para relações profissionais saudáveis.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-8 shadow-lg border-t-4 border-gold hover:-translate-y-2 transition-transform duration-300 reveal delay-300">
+                    <div class="text-gold font-serif text-5xl mb-4 opacity-20">04</div>
+                    <h3 class="font-bold text-navy-900 text-lg mb-3">Âncoras de Carreira</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">O que sustenta suas escolhas e onde você realmente se realiza no trabalho.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center reveal">
+                <p class="text-navy-900 font-medium">Em resumo: Você recebe um <span class="font-bold border-b border-gold">dossiê completo</span> da sua identidade.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dobra 5: Para quem é -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <div class="bg-navy-900 text-white p-10 rounded-sm relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-gold opacity-20 rounded-full blur-3xl"></div>
+                    <h3 class="font-serif text-3xl mb-6">Este processo é para você que:</h3>
+                    <ul class="space-y-4 font-light">
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-gold rounded-full"></span>Quer promoção com maturidade</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-gold rounded-full"></span>Busca recolocação com direção</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-gold rounded-full"></span>Está considerando transição de carreira</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-gold rounded-full"></span>Está perdido e cansado de repetir padrões</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-gold rounded-full"></span>Quer se posicionar melhor profissionalmente</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-gold rounded-full"></span>Deseja liderar com consistência</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-gold rounded-full"></span>Precisa decidir sua próxima fase com firmeza</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center md:text-left reveal">
+                <h2 class="font-serif text-4xl text-navy-900 mb-6">Encontre seu Norte.</h2>
+                <p class="text-gray-600 text-lg mb-8">Se você quer clareza para avançar, este processo não é um luxo, é uma necessidade estratégica.</p>
+                <a href="#oferta" class="inline-block border-b-2 border-gold text-navy-900 font-bold hover:text-gold transition-colors pb-1">
+                    VERIFICAR DISPONIBILIDADE &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dobra 6: Sobre o Mentor -->
+    <section id="mentor" class="py-24 bg-navy-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/3 reveal">
+                    <!-- Foto do Ricardo Borges (Mantida a correta na seção Mentor) -->
+                    <div class="aspect-[3/4] bg-gradient-to-t from-black to-navy-800 border-4 border-navy-800 shadow-2xl relative overflow-hidden">
+                        <img src="http://midias.lcai.com.br/images/2025/11/24/2-Foto.webp" alt="Ricardo Borges" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent">
+                            <p class="text-gold font-serif text-xl">Ricardo Borges</p>
+                            <p class="text-xs tracking-widest uppercase text-gray-400">Mentor & Engenheiro</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-2/3 reveal delay-100">
+                    <h2 class="font-serif text-3xl md:text-4xl mb-6">Quem conduz sua <span class="italic text-gold">análise</span></h2>
+                    <div class="space-y-6 text-gray-300 font-light leading-relaxed">
+                        <p>Com mais de 20 anos na engenharia, liderando projetos, equipes e operações, acumulei resultados sólidos. Mas percebi que a técnica explicava apenas uma parte. O comportamento humano completou o que faltava.</p>
+                        <p class="border-l-2 border-gold pl-6 italic text-white font-serif text-lg">
+                            "Minha missão é ajudar profissionais a encontrarem clareza, equilíbrio e propósito para destravar seu potencial."
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 pt-4 text-sm font-medium text-white">
+                            <div class="flex items-center gap-2"><div class="w-2 h-2 bg-gold"></div>Mentor</div>
+                            <div class="flex items-center gap-2"><div class="w-2 h-2 bg-gold"></div>Analista Comportamental</div>
+                            <div class="flex items-center gap-2"><div class="w-2 h-2 bg-gold"></div>Especialista em IE</div>
+                            <div class="flex items-center gap-2"><div class="w-2 h-2 bg-gold"></div>Neurociência & Performance</div>
+                        </div>
+                        <p>Do jovem profissional ao líder sênior, conecto lógica e humanidade para quem quer crescer de forma consistente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dobra 7: Como Funciona -->
+    <section class="py-20 bg-beige-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-3xl md:text-4xl text-navy-900">Como funciona na prática</h2>
+                <div class="w-20 h-1 bg-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Vertical Line -->
+                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-navy-900/10 md:transform md:-translate-x-1/2"></div>
+                
+                <!-- Steps -->
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="relative md:flex items-center justify-between group reveal">
+                        <div class="md:w-[45%] mb-4 md:mb-0 md:text-right">
+                            <h3 class="font-bold text-navy-900 text-lg">1. Você garante o Combo</h3>
+                            <p class="text-sm text-gray-600">Aproveite a condição de Black Friday.</p>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-white bg-gold transform -translate-x-1.5 md:-translate-x-2 z-10 shadow"></div>
+                        <div class="md:w-[45%] pl-10 md:pl-0"></div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="relative md:flex items-center justify-between group reveal">
+                        <div class="md:w-[45%] mb-4 md:mb-0 md:text-right order-1 md:order-1"></div>
+                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-white bg-navy-900 transform -translate-x-1.5 md:-translate-x-2 z-10 shadow"></div>
+                        <div class="md:w-[45%] pl-10 md:pl-0 order-2 md:order-2">
+                             <h3 class="font-bold text-navy-900 text-lg">2. Recebe o Ebook & Agenda</h3>
+                            <p class="text-sm text-gray-600">Acesso imediato ao material e link de agenda.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative md:flex items-center justify-between group reveal">
+                        <div class="md:w-[45%] mb-4 md:mb-0 md:text-right">
+                            <h3 class="font-bold text-navy-900 text-lg">3. Análise Profunda</h3>
+                            <p class="text-sm text-gray-600">Você responde aos instrumentos e realizamos a devolutiva.</p>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-white bg-navy-900 transform -translate-x-1.5 md:-translate-x-2 z-10 shadow"></div>
+                        <div class="md:w-[45%] pl-10 md:pl-0"></div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative md:flex items-center justify-between group reveal">
+                        <div class="md:w-[45%] mb-4 md:mb-0 md:text-right order-1 md:order-1"></div>
+                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-white bg-gold transform -translate-x-1.5 md:-translate-x-2 z-10 shadow"></div>
+                        <div class="md:w-[45%] pl-10 md:pl-0 order-2 md:order-2">
+                             <h3 class="font-bold text-navy-900 text-lg">4. Entrega do Dossiê</h3>
+                            <p class="text-sm text-gray-600">Você sai com clareza interna e direção externa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dobra 8: Prova Social (Carrossel Dinâmico) -->
+    <section class="py-20 bg-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="font-serif text-3xl text-center text-navy-900 mb-12 reveal">O que profissionais dizem após a Análise</h2>
+            
+            <!-- Swiper Container -->
+            <div class="swiper mySwiper reveal delay-100 pb-12">
+                <div class="swiper-wrapper">
+                    <!-- Depoimento 1 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-beige-light p-8 rounded shadow-sm border border-transparent hover:border-gold transition-colors h-full flex flex-col text-center md:text-left">
+                            <div class="text-gold text-4xl font-serif mb-4 leading-none">“</div>
+                            <p class="text-gray-700 italic text-lg flex-grow">É como se tivessem acendido uma luz. Eu me enxerguei pela primeira vez.</p>
+                            <!-- Removido o bloco de "Profissional Verificado" aqui -->
+                        </div>
+                    </div>
+                    <!-- Depoimento 2 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-beige-light p-8 rounded shadow-sm border border-transparent hover:border-gold transition-colors h-full flex flex-col text-center md:text-left">
+                            <div class="text-gold text-4xl font-serif mb-4 leading-none">“</div>
+                            <p class="text-gray-700 italic text-lg flex-grow">Finalmente tive coragem de iniciar minha transição de carreira.</p>
+                             <!-- Removido o bloco de "Profissional Verificado" aqui -->
+                        </div>
+                    </div>
+                    <!-- Depoimento 3 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-beige-light p-8 rounded shadow-sm border border-transparent hover:border-gold transition-colors h-full flex flex-col text-center md:text-left">
+                            <div class="text-gold text-4xl font-serif mb-4 leading-none">“</div>
+                            <p class="text-gray-700 italic text-lg flex-grow">Recusei uma vaga porque agora sei o que faz sentido para a minha carreira.</p>
+                             <!-- Removido o bloco de "Profissional Verificado" aqui -->
+                        </div>
+                    </div>
+                    <!-- Depoimento 4 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-beige-light p-8 rounded shadow-sm border border-transparent hover:border-gold transition-colors h-full flex flex-col text-center md:text-left">
+                            <div class="text-gold text-4xl font-serif mb-4 leading-none">“</div>
+                            <p class="text-gray-700 italic text-lg flex-grow">Minha liderança mudou e isso refletiu de forma muito positiva no desempenho do meu time.</p>
+                             <!-- Removido o bloco de "Líder Verificado" aqui -->
+                        </div>
+                    </div>
+                    <!-- Depoimento 5 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-beige-light p-8 rounded shadow-sm border border-transparent hover:border-gold transition-colors h-full flex flex-col text-center md:text-left">
+                            <div class="text-gold text-4xl font-serif mb-4 leading-none">“</div>
+                            <p class="text-gray-700 italic text-lg flex-grow">Depois de me conhecer realmente, passei a me posicionar melhor e fui promovido.</p>
+                             <!-- Removido o bloco de "Profissional Verificado" aqui -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Paginação (Pontinhos) -->
+                <div class="swiper-pagination !bottom-0"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Dobra 9: Preço (Oferta) -->
+    <section id="oferta" class="py-24 bg-navy-900 text-white relative overflow-hidden">
+        <!-- Background radial glow -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-full max-h-[600px] bg-navy-800 rounded-full blur-3xl opacity-50"></div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <span class="inline-block py-1 px-3 border border-gold text-gold text-xs tracking-widest mb-6">BLACK FRIDAY</span>
+            <h2 class="font-serif text-3xl md:text-5xl mb-2">Investimento</h2>
+            <p class="text-gray-400 mb-10">Pela última vez neste valor.</p>
+
+            <div class="max-w-lg mx-auto bg-white text-navy-900 rounded-lg p-1 p-b-0 shadow-2xl reveal">
+                <div class="bg-white p-8 md:p-12 rounded-lg border border-gray-100">
+                    <div class="flex justify-center items-baseline mb-8">
+                        <span class="text-xl text-gray-500 font-medium align-top">R$</span>
+                        <span class="text-6xl md:text-7xl font-bold text-navy-900 tracking-tight">497</span>
+                        <span class="text-xl text-gray-500 font-medium">,00</span>
+                    </div>
+
+                    <ul class="text-left space-y-4 mb-10 text-gray-600">
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Devolutiva Individual
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            4 Relatórios Completos
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Dossiê Completo
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Ebook Linkedin Estratégico
+                        </li>
+                        <li class="flex items-center gap-3 font-semibold text-navy-900">
+                            <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            Garantia de Clareza
+                        </li>
+                    </ul>
+
+                    <!-- Botão Ajustado: Adicionado rounded-full -->
+                    <a href="#" class="btn-premium block w-full bg-gold text-navy-900 font-bold text-lg py-4 rounded-full shadow-lg mb-4 hover:shadow-xl hover:bg-gold-light transition-all">
+                        QUERO CLAREZA PARA 2026
+                    </a>
+                    <p class="text-xs text-gray-500">Pagamento seguro. Acesso imediato.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dobra 10: Garantia -->
+    <section class="py-16 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="flex flex-col md:flex-row items-center gap-8 reveal">
+                <div class="flex-shrink-0">
+                    <div class="w-24 h-24 bg-navy-900 rounded-full flex items-center justify-center border-4 border-gold">
+                        <svg class="w-10 h-10 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="text-center md:text-left">
+                    <h3 class="font-serif text-2xl text-navy-900 mb-2">Garantia de Clareza e Compromisso</h3>
+                    <p class="text-gray-600 mb-4">Se a devolutiva não te entregar clareza real sobre você e sua direção, devolvo 100% do investimento.</p>
+                    <p class="font-bold text-navy-900 text-sm tracking-wide">SIMPLES. RESPONSÁVEL. HONESTO.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dobra 11: FAQ -->
+    <section class="py-20 bg-beige-light">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="font-serif text-3xl text-navy-900 text-center mb-12 reveal">Perguntas Frequentes</h2>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded shadow-sm overflow-hidden reveal">
+                    <button class="accordion-header w-full px-6 py-4 text-left font-semibold text-navy-900 flex justify-between items-center focus:outline-none">
+                        <span>1. Quanto tempo dura a devolutiva?</span>
+                        <span class="text-gold text-xl">+</span>
+                    </button>
+                    <div class="accordion-content px-6 bg-white text-gray-600">
+                        <p class="pb-4">Entre 60 e 90 minutos, dependendo da profundidade necessária.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded shadow-sm overflow-hidden reveal">
+                    <button class="accordion-header w-full px-6 py-4 text-left font-semibold text-navy-900 flex justify-between items-center focus:outline-none">
+                        <span>2. Eu recebo os relatórios depois da sessão?</span>
+                        <span class="text-gold text-xl">+</span>
+                    </button>
+                    <div class="accordion-content px-6 bg-white text-gray-600">
+                        <p class="pb-4">Sim. Todos os relatórios e o dossiê ficam com você para consultas futuras.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded shadow-sm overflow-hidden reveal">
+                    <button class="accordion-header w-full px-6 py-4 text-left font-semibold text-navy-900 flex justify-between items-center focus:outline-none">
+                        <span>3. Posso fazer mesmo sem estar em transição?</span>
+                        <span class="text-gold text-xl">+</span>
+                    </button>
+                    <div class="accordion-content px-6 bg-white text-gray-600">
+                        <p class="pb-4">Sim. A análise é para qualquer profissional que deseja clareza interna e direção estratégica.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded shadow-sm overflow-hidden reveal">
+                    <button class="accordion-header w-full px-6 py-4 text-left font-semibold text-navy-900 flex justify-between items-center focus:outline-none">
+                        <span>4. Preciso ter conhecimento prévio sobre comportamento?</span>
+                        <span class="text-gold text-xl">+</span>
+                    </button>
+                    <div class="accordion-content px-6 bg-white text-gray-600">
+                        <p class="pb-4">Não. Todo o processo é guiado, claro e aplicado à sua realidade.</p>
+                    </div>
+                </div>
+
+                 <!-- FAQ Item 5 -->
+                 <div class="bg-white rounded shadow-sm overflow-hidden reveal">
+                    <button class="accordion-header w-full px-6 py-4 text-left font-semibold text-navy-900 flex justify-between items-center focus:outline-none">
+                        <span>5. Como funciona o agendamento?</span>
+                        <span class="text-gold text-xl">+</span>
+                    </button>
+                    <div class="accordion-content px-6 bg-white text-gray-600">
+                        <p class="pb-4">Após a compra, enviamos o link para marcar sua devolutiva no horário que preferir.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA & Footer -->
+    <footer class="bg-navy-900 text-white pt-20 pb-10 border-t border-white/10">
+        <div class="container mx-auto px-6 text-center max-w-4xl">
+            <h2 class="font-serif text-3xl md:text-4xl mb-6">Se 2026 precisa ser diferente, comece pela <span class="italic text-gold">clareza</span> que sustenta todas as suas decisões.</h2>
+            
+            <!-- Botão Ajustado: Adicionado rounded-full -->
+            <a href="#oferta" class="inline-block bg-gold text-navy-900 font-bold px-10 py-4 rounded-full shadow-lg hover:bg-white transition-all transform hover:-translate-y-1 mb-16">
+                QUERO CLAREZA E DIREÇÃO PARA 2026
+            </a>
+
+            <div class="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <div class="font-serif text-lg text-white mb-4 md:mb-0">RB</div>
+                <div class="space-x-4">
+                    <a href="#" class="hover:text-gold transition-colors">Termos de Uso</a>
+                    <a href="#" class="hover:text-gold transition-colors">Política de Privacidade</a>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    &copy; 2025 Ricardo Borges.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- SwiperJS JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+
+        // FAQ Accordion
+        const headers = document.querySelectorAll('.accordion-header');
+        headers.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('span:last-child');
+                
+                // Close others
+                document.querySelectorAll('.accordion-content').forEach(c => {
+                    if (c !== content) {
+                        c.classList.remove('open');
+                        c.style.maxHeight = null;
+                        c.previousElementSibling.querySelector('span:last-child').textContent = '+';
+                    }
+                });
+
+                // Toggle current
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    content.classList.remove('open');
+                    icon.textContent = '+';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.classList.add('open');
+                    icon.textContent = '-';
+                }
+            });
+        });
+
+        // Navbar Scroll Effect (Ajustado para cor sólida)
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+                // Removida a troca de cor de fundo, pois agora é sempre sólida
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+
+        // Initialize Swiper (Carousel)
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1, // Mobile (padrão)
+            spaceBetween: 30,
+            loop: true, // Loop infinito
+            autoplay: {
+                delay: 5000, // 5 segundos
+                disableOnInteraction: false, // Continua rodando após interação
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2, // Tablet
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 3, // Desktop
+                    spaceBetween: 30,
+                },
+            },
+        });
+    </script>
+</body>
+</html>
