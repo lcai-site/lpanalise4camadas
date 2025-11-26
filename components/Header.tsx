@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,20 +22,19 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center gap-4">
         {/* Logo */}
-        <a href="#" className="block relative flex-shrink-0 group">
-          <img
-            src="http://midias.lcai.com.br/images/2025/11/24/Logo-RB-Branco.png"
-            alt="Ricardo Borges"
-            className="h-8 md:h-12 w-auto object-contain block group-hover:hidden"
-            onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                const nextSibling = e.currentTarget.nextElementSibling as HTMLElement;
-                if(nextSibling) nextSibling.classList.remove('hidden');
-            }}
-          />
-           <div className="hidden text-white font-serif tracking-widest text-xl uppercase font-bold group-hover:block">
-            Ricardo <span className="text-gold">Borges</span>
-          </div>
+        <a href="#" className="block relative flex-shrink-0">
+          {!imageError ? (
+            <img
+              src="http://midias.lcai.com.br/images/2025/11/24/Logo-RB-Branco.png"
+              alt="Ricardo Borges"
+              className="h-8 md:h-12 w-auto object-contain"
+              onError={() => setImageError(true)}
+            />
+          ) : (
+            <div className="text-white font-serif tracking-widest text-xl uppercase font-bold">
+              Ricardo <span className="text-gold">Borges</span>
+            </div>
+          )}
         </a>
 
         {/* Desktop Nav */}

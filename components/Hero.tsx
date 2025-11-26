@@ -52,12 +52,12 @@ const Hero: React.FC = () => {
               href="#oferta"
               className="btn-premium bg-gold text-navy-900 px-8 py-4 font-bold text-center rounded-full shadow-lg shadow-gold/20 hover:shadow-gold/40 hover:-translate-y-1 transform transition-all w-full md:w-auto"
             >
-              QUERO CLAREZA E DIREÇÃO
+              QUERO ENCONTRAR MINHA VERDADEIRA IDENTIDADE
             </a>
           </div>
 
           <p className="mt-4 text-xs md:text-sm text-gray-400">
-            Condição única para quem quer decidir com maturidade.
+            Condição única para quem quer decidir seu futuro com maturidade e Inteligência Emocional.
           </p>
         </Reveal>
 

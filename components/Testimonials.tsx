@@ -5,11 +5,9 @@ import Reveal from './ui/Reveal';
 
 const Testimonials: React.FC = () => {
   const testimonials = [
-    { text: "É como se tivessem acendido uma luz. Eu me enxerguei pela primeira vez." },
-    { text: "Finalmente tive coragem de iniciar minha transição de carreira." },
-    { text: "Recusei uma vaga porque agora sei o que faz sentido para a minha carreira." },
     { text: "Minha liderança mudou e isso refletiu de forma muito positiva no desempenho do meu time." },
     { text: "Depois de me conhecer realmente, passei a me posicionar melhor e fui promovido." },
+    { text: "É como se tivessem acendido uma luz. Eu me enxerguei pela primeira vez." },
   ];
 
   return (

@@ -36,7 +36,7 @@ const TargetAudience: React.FC = () => {
             Se você quer clareza para avançar, este processo não é um luxo, é uma necessidade estratégica.
           </p>
           <a href="#oferta" className="inline-block border-b-2 border-gold text-navy-900 font-bold hover:text-gold transition-colors pb-1">
-            VERIFICAR DISPONIBILIDADE &rarr;
+            QUERO CLAREZA E DIREÇÃO &rarr;
           </a>
         </Reveal>
       </div>
