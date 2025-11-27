@@ -152,6 +152,11 @@
         .swiper-pagination-bullet-active {
             opacity: 1;
         }
+        
+        /* Swiper Navigation Arrows Gold */
+        .swiper-button-next, .swiper-button-prev {
+            color: #CC9933;
+        }
     </style>
 <script type="importmap">
 {
@@ -192,12 +197,11 @@
     </header>
 
     <!-- Dobra 1: Hero Section -->
-    <!-- Ajuste: Reduzi o pt-32 para pt-28 no mobile e pt-20 para pt-32 no desktop para equilibrar o espaço do header -->
     <section class="relative min-h-[85vh] md:min-h-screen flex items-end bg-navy-900 text-white pt-24 md:pt-32 overflow-hidden">
         <!-- Background Elements -->
         <div class="absolute inset-0 pointer-events-none overflow-hidden pb-0">
             <div class="absolute inset-0 bg-compass-pattern opacity-10"></div>
-            <!-- BÚSSOLA GIRATÓRIA: Opacidade 5% e mais à direita -->
+            <!-- BÚSSOLA GIRATÓRIA -->
             <div class="absolute top-1/2 left-1/2 md:left-3/4 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center">
                 <img src="http://midias.lcai.com.br/images/2025/11/24/Logo-RB-Branco-1.png" 
                      alt="Bússola de Fundo" 
@@ -205,11 +209,10 @@
             </div>
         </div>
 
-        <!-- Layout Flexbox: Controle total da ordem no Mobile -->
+        <!-- Layout Flexbox -->
         <div class="container mx-auto px-6 relative z-10 flex flex-col md:grid md:grid-cols-2 md:gap-12 items-center h-full justify-end md:justify-center pb-8 md:pb-0">
             
             <!-- 1. BLOCO DE CONTEÚDO (Texto + Botão) -->
-            <!-- Mobile: Ordem ajustada internamente / Desktop: Coluna da Esquerda -->
             <div class="reveal active w-full md:text-left text-center flex flex-col z-30 mb-0 md:mb-12">
                 
                 <!-- Tag Black Friday -->
@@ -222,34 +225,30 @@
                     A decisão mais <span class="italic text-gold">importante</span> da sua carreira é entender <br class="hidden md:block">quem você é.
                 </h1>
 
-                <!-- Subtítulo (Agora logo abaixo do título no mobile também) -->
+                <!-- Subtítulo -->
                 <p class="text-sm md:text-xl text-gray-300 font-light mb-6 md:mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
                     Transforme autoconhecimento em estratégia para conduzir suas escolhas com clareza e entrar em 2026 rompendo o ciclo dos velhos padrões.
                 </p>
 
-                <!-- Imagem no Mobile (Aparece aqui no meio, entre o texto e o botão) -->
+                <!-- Imagem no Mobile -->
                 <div class="md:hidden relative w-full flex justify-center mt-[-20px] mb-[-20px] pointer-events-none z-0">
-                    <!-- FOTO ATUALIZADA (Versão Mobile) -->
                     <img src="http://midias.lcai.com.br/images/2025/11/24/Design-sem-nome-22-2.webp" 
                          alt="Ricardo Borges" 
                          class="w-[90%] max-w-[350px] h-auto object-contain drop-shadow-2xl transform translate-y-4">
                 </div>
 
-                <!-- Botão CTA (Abaixo da imagem no mobile) -->
+                <!-- Botão CTA -->
                 <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 relative z-30 mt-4 md:mt-0">
                     <a href="#oferta" class="btn-premium bg-gold text-navy-900 px-8 py-4 font-bold text-center rounded-full shadow-lg shadow-gold/20 hover:shadow-gold/40 hover:-translate-y-1 transform transition-all w-full md:w-auto">
                         QUERO ENCONTRAR MINHA VERDADEIRA IDENTIDADE
                     </a>
                 </div>
                 
-                <p class="mt-4 text-xs md:text-sm text-gray-400">Condição única para quem quer decidir seu futuro com maturidade e Inteligência Emocional.
-</p>
+                <p class="mt-4 text-xs md:text-sm text-gray-400">Condição única para quem quer decidir seu futuro com maturidade e Inteligência Emocional.</p>
             </div>
 
             <!-- 2. FOTO DO EXPERT (Apenas Desktop) -->
-            <!-- Desktop: Coluna da Direita / Mobile: Escondida (pois já foi mostrada acima) -->
             <div class="hidden md:flex reveal delay-200 relative z-20 justify-center md:justify-end pointer-events-none h-full items-end">
-                <!-- FOTO ATUALIZADA (Versão Desktop) -->
                 <img src="http://midias.lcai.com.br/images/2025/11/24/Design-sem-nome-22-2.webp" 
                      alt="Ricardo Borges" 
                      class="w-[110%] max-w-none h-auto object-contain drop-shadow-2xl transform scale-110 translate-y-10 origin-bottom">
@@ -259,7 +258,6 @@
     </section>
 
     <!-- FAIXA DE ROLAGEM (MARQUEE) -->
-    <!-- Z-index alto para garantir que fique sobre o fundo mas sob a foto se necessário -->
     <div class="bg-gold overflow-hidden py-3 border-y border-white/20 relative z-20 shadow-lg">
         <div class="animate-marquee hover:pause">
             <!-- Bloco 1 -->
@@ -277,7 +275,7 @@
                 <span class="text-navy-900 font-bold uppercase tracking-widest text-sm md:text-base flex items-center gap-2">⚠️ BLACK FRIDAY 2025</span>
                 <span class="text-navy-900/40 text-xs">•</span>
             </div>
-            <!-- Bloco 2 (Duplicado para o efeito infinito) -->
+            <!-- Bloco 2 -->
             <div class="flex items-center gap-8 px-4">
                 <span class="text-navy-900 font-bold uppercase tracking-widest text-sm md:text-base flex items-center gap-2">⚠️ VAGAS LIMITADAS</span>
                 <span class="text-navy-900/40 text-xs">•</span>
@@ -305,13 +303,11 @@
                 <div class="grid md:grid-cols-3 gap-6 text-left">
                     <div class="bg-beige-light p-8 border-l-4 border-gold">
                         <h3 class="font-bold text-navy-900 text-xl mb-2">Análise de perfil de identidade</h3>
-                        <p class="text-gray-600">4 relatórios completos que fazem uma leitura profunda de como você está se posicionando com relação às pessoas e ao ambiente + Devolutiva Individual com mentor, mostrando todos as nuances do seu perfil predominante.
-</p>
+                        <p class="text-gray-600">4 relatórios completos que fazem uma leitura profunda de como você está se posicionando com relação às pessoas e ao ambiente + Devolutiva Individual com mentor, mostrando todos as nuances do seu perfil predominante.</p>
                     </div>
                     <div class="bg-beige-light p-8 border-l-4 border-gold">
                         <h3 class="font-bold text-navy-900 text-xl mb-2">Direcionamento</h3>
-                        <p class="text-gray-600">Para quem não sabe para onde está indo, qualquer caminho serve...<br>Mas a sua carreira exige direção. Aqui, definimos sua rota com estratégia e consistência para que você faça as escolhas certas, alinhadas ao seu propósito.
-</p>
+                        <p class="text-gray-600">Para quem não sabe para onde está indo, qualquer caminho serve...<br>Mas a sua carreira exige direção. Aqui, definimos sua rota com estratégia e consistência para que você faça as escolhas certas, alinhadas ao seu propósito.</p>
                     </div>
                     <div class="bg-beige-light p-8 border-l-4 border-gold">
                         <h3 class="font-bold text-navy-900 text-xl mb-2">Ebook Linkedin Estratégico</h3>
@@ -365,8 +361,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                     </svg>
                     <h3 class="font-serif text-2xl text-white mb-4">Inteligência Emocional</h3>
-                    <p class="text-gray-400">Aprenda a reconhecer, gerenciar e utilizar emoções — suas e as dos outros — de forma estratégica. 
-Mais do que uma Soft Skill, a Inteligência Emocional é a base para tomar decisões conscientes, construir relacionamentos sólidos e alcançar a alta performance na carreira e na vida.</p>
+                    <p class="text-gray-400">Aprenda a reconhecer, gerenciar e utilizar emoções — suas e as dos outros — de forma estratégica. Mais do que uma Soft Skill, a Inteligência Emocional é a base para tomar decisões conscientes, construir relacionamentos sólidos e alcançar a alta performance na carreira e na vida.</p>
                 </div>
                 <!-- Decorative Elements -->
                 <div class="absolute -z-10 -top-4 -right-4 w-full h-full border border-gray-700/50 rounded"></div>
@@ -449,7 +444,6 @@ Mais do que uma Soft Skill, a Inteligência Emocional é a base para tomar decis
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row gap-12 items-center">
                 <div class="w-full md:w-1/3 reveal">
-                    <!-- Foto do Ricardo Borges (Mantida a correta na seção Mentor) -->
                     <div class="aspect-[3/4] bg-gradient-to-t from-black to-navy-800 border-4 border-navy-800 shadow-2xl relative overflow-hidden">
                         <img src="http://midias.lcai.com.br/images/2025/11/24/2-Foto.webp" alt="Ricardo Borges" class="w-full h-full object-cover">
                         <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent">
@@ -465,7 +459,7 @@ Mais do que uma Soft Skill, a Inteligência Emocional é a base para tomar decis
 O comportamento humano completou o que faltava. Foi aí que meus resultados começaram a ter mais consistência e meu nome, minha presença começaram a ter mais destaque em reuniões e nas redes de networking. Afinal estamos a todo tempo lidando com pessoas e emoções. 
 </p>
                         <p class="border-l-2 border-gold pl-6 italic text-white font-serif text-lg">
-                            "Minha missão é conduzir profissionais na busca de seu autoconhecimento, encontrando clareza, equilíbrio e propósito para destravar seu potencial."
+                            "Minha missão é ajudar profissionais a encontrarem clareza, equilíbrio e propósito para destravar seu potencial."
                         </p>
                         <div class="grid grid-cols-2 gap-4 pt-4 text-sm font-medium text-white">
                             <div class="flex items-center gap-2"><div class="w-2 h-2 bg-gold"></div>Mentor</div>
@@ -480,110 +474,87 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
         </div>
     </section>
 
-    <!-- Dobra 7: Como Funciona -->
-    <section class="py-20 bg-beige-light">
+    <!-- Dobra 7: Como Funciona (Carrossel) -->
+    <section class="py-20 bg-beige-light overflow-hidden">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <h2 class="font-serif text-3xl md:text-4xl text-navy-900">Sua Jornada Após Garantir sua vaga</h2>
+            <div class="text-center mb-12 reveal">
+                <h2 class="font-serif text-3xl md:text-4xl text-navy-900">Como funciona na prática</h2>
                 <div class="w-20 h-1 bg-gold mx-auto mt-4"></div>
             </div>
 
-            <div class="relative max-w-4xl mx-auto">
-                <!-- Vertical Line -->
-                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-navy-900/10 md:transform md:-translate-x-1/2"></div>
-                
-                <!-- Steps (Atualizado para 9 passos com ajuste mobile) -->
-                <div class="space-y-12">
-                    <!-- Step 1 (Right - Navy) -->
-                    <div class="relative md:flex items-center justify-between group reveal">
-                        <div class="md:w-[45%] mb-8 md:mb-0 md:text-right order-1 md:order-1"></div>
-                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-white bg-navy-900 transform -translate-x-1.5 md:-translate-x-2 z-10 shadow"></div>
-                        <div class="md:w-[45%] pl-12 md:pl-0 order-2 md:order-2 w-full">
-                             <h3 class="font-bold text-navy-900 text-lg">1. O Mapeamento</h3>
-                            <p class="text-sm text-gray-600">Você preenche a análise comportamental completa.</p>
+            <!-- Swiper Container para o Processo -->
+            <div class="swiper processSwiper reveal delay-100 !pb-12">
+                <div class="swiper-wrapper">
+                    <!-- Step 1 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white p-8 rounded-lg shadow-sm border-t-4 border-gold h-full flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                            <div class="absolute top-0 right-0 p-4 opacity-10 font-serif text-6xl text-gold font-bold -mt-2 -mr-2">01</div>
+                            <h3 class="font-bold text-navy-900 text-xl mb-3 relative z-10">Sua Jornada Após Garantir sua Vaga</h3>
+                            <p class="text-sm text-gray-600 relative z-10">Você adquire o Combo Identidade & Direção.</p>
                         </div>
                     </div>
-
-                    <!-- Step 2 (Left - Gold) -->
-                    <div class="relative md:flex items-center justify-between group reveal">
-                        <div class="md:w-[45%] mb-8 md:mb-0 md:text-right w-full pl-12 md:pl-0">
-                            <h3 class="font-bold text-navy-900 text-lg">2. O Agendamento</h3>
-                            <p class="text-sm text-gray-600">Escolhe a melhor data para sua sessão exclusiva comigo.</p>
-                        </div>
-                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-white bg-gold transform -translate-x-1.5 md:-translate-x-2 z-10 shadow"></div>
-                        <div class="md:w-[45%] pl-12 md:pl-0"></div>
-                    </div>
-
-                    <!-- Step 3 (Right - Navy) -->
-                    <div class="relative md:flex items-center justify-between group reveal">
-                        <div class="md:w-[45%] mb-8 md:mb-0 md:text-right order-1 md:order-1"></div>
-                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-white bg-navy-900 transform -translate-x-1.5 md:-translate-x-2 z-10 shadow"></div>
-                        <div class="md:w-[45%] pl-12 md:pl-0 order-2 md:order-2 w-full">
-                             <h3 class="font-bold text-navy-900 text-lg">3. A Devolutiva</h3>
-                            <p class="text-sm text-gray-600">Realiza a sessão 1:1, onde traduzimos seus dados em clareza.</p>
+                    <!-- Step 2 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white p-8 rounded-lg shadow-sm border-t-4 border-navy-900 h-full flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                            <div class="absolute top-0 right-0 p-4 opacity-10 font-serif text-6xl text-navy-900 font-bold -mt-2 -mr-2">02</div>
+                            <h3 class="font-bold text-navy-900 text-xl mb-3 relative z-10">O Mapeamento</h3>
+                            <p class="text-sm text-gray-600 relative z-10">Você preenche a análise comportamental completa.</p>
                         </div>
                     </div>
-
-                    <!-- Step 4 (Left - Gold) -->
-                    <div class="relative md:flex items-center justify-between group reveal">
-                        <div class="md:w-[45%] mb-8 md:mb-0 md:text-right w-full pl-12 md:pl-0">
-                            <h3 class="font-bold text-navy-900 text-lg">4. A Descoberta</h3>
-                            <p class="text-sm text-gray-600">Entende profundamente seu perfil dominante, forças e sabotadores.</p>
-                        </div>
-                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-white bg-gold transform -translate-x-1.5 md:-translate-x-2 z-10 shadow"></div>
-                        <div class="md:w-[45%] pl-12 md:pl-0"></div>
-                    </div>
-
-                    <!-- Step 5 (Right - Navy) -->
-                    <div class="relative md:flex items-center justify-between group reveal">
-                        <div class="md:w-[45%] mb-8 md:mb-0 md:text-right order-1 md:order-1"></div>
-                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-white bg-navy-900 transform -translate-x-1.5 md:-translate-x-2 z-10 shadow"></div>
-                        <div class="md:w-[45%] pl-12 md:pl-0 order-2 md:order-2 w-full">
-                             <h3 class="font-bold text-navy-900 text-lg">5. O Plano de Ação</h3>
-                            <p class="text-sm text-gray-600">Recebe diretrizes práticas e personalizadas para o seu momento.</p>
+                    <!-- Step 3 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white p-8 rounded-lg shadow-sm border-t-4 border-gold h-full flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                            <div class="absolute top-0 right-0 p-4 opacity-10 font-serif text-6xl text-gold font-bold -mt-2 -mr-2">03</div>
+                            <h3 class="font-bold text-navy-900 text-xl mb-3 relative z-10">O Agendamento</h3>
+                            <p class="text-sm text-gray-600 relative z-10">Escolhe a melhor data para sua sessão exclusiva comigo.</p>
                         </div>
                     </div>
-
-                    <!-- Step 6 (Left - Gold) -->
-                    <div class="relative md:flex items-center justify-between group reveal">
-                        <div class="md:w-[45%] mb-8 md:mb-0 md:text-right w-full pl-12 md:pl-0">
-                            <h3 class="font-bold text-navy-900 text-lg">6. A Visão de Futuro</h3>
-                            <p class="text-sm text-gray-600">Estabelece objetivos de carreira claros e alcançáveis.</p>
-                        </div>
-                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-white bg-gold transform -translate-x-1.5 md:-translate-x-2 z-10 shadow"></div>
-                        <div class="md:w-[45%] pl-12 md:pl-0"></div>
-                    </div>
-
-                    <!-- Step 7 (Right - Navy) -->
-                    <div class="relative md:flex items-center justify-between group reveal">
-                        <div class="md:w-[45%] mb-8 md:mb-0 md:text-right order-1 md:order-1"></div>
-                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-white bg-navy-900 transform -translate-x-1.5 md:-translate-x-2 z-10 shadow"></div>
-                        <div class="md:w-[45%] pl-12 md:pl-0 order-2 md:order-2 w-full">
-                             <h3 class="font-bold text-navy-900 text-lg">7. O Dossiê</h3>
-                            <p class="text-sm text-gray-600">Recebe seus 4 relatórios completos para consulta vitalícia.</p>
+                    <!-- Step 4 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white p-8 rounded-lg shadow-sm border-t-4 border-navy-900 h-full flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                            <div class="absolute top-0 right-0 p-4 opacity-10 font-serif text-6xl text-navy-900 font-bold -mt-2 -mr-2">04</div>
+                            <h3 class="font-bold text-navy-900 text-xl mb-3 relative z-10">A Devolutiva</h3>
+                            <p class="text-sm text-gray-600 relative z-10">Realiza a sessão 1:1, onde traduzimos seus dados em clareza.</p>
                         </div>
                     </div>
-
-                    <!-- Step 8 (Left - Gold) -->
-                    <div class="relative md:flex items-center justify-between group reveal">
-                        <div class="md:w-[45%] mb-8 md:mb-0 md:text-right w-full pl-12 md:pl-0">
-                            <h3 class="font-bold text-navy-900 text-lg">8. A Execução</h3>
-                            <p class="text-sm text-gray-600">Aplica o Ebook LinkedIn Estratégico para posicionar sua nova versão no mercado.</p>
+                    <!-- Step 5 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white p-8 rounded-lg shadow-sm border-t-4 border-gold h-full flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                            <div class="absolute top-0 right-0 p-4 opacity-10 font-serif text-6xl text-gold font-bold -mt-2 -mr-2">05</div>
+                            <h3 class="font-bold text-navy-900 text-xl mb-3 relative z-10">A Descoberta</h3>
+                            <p class="text-sm text-gray-600 relative z-10">Entende profundamente seu perfil dominante, forças e sabotadores.</p>
                         </div>
-                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-white bg-gold transform -translate-x-1.5 md:-translate-x-2 z-10 shadow"></div>
-                        <div class="md:w-[45%] pl-12 md:pl-0"></div>
                     </div>
-
-                    <!-- Step 9 (Right - Navy) -->
-                    <div class="relative md:flex items-center justify-between group reveal">
-                        <div class="md:w-[45%] mb-8 md:mb-0 md:text-right order-1 md:order-1"></div>
-                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full border-4 border-white bg-navy-900 transform -translate-x-1.5 md:-translate-x-2 z-10 shadow"></div>
-                        <div class="md:w-[45%] pl-12 md:pl-0 order-2 md:order-2 w-full">
-                             <h3 class="font-bold text-navy-900 text-lg">9. A Execução</h3>
-                            <p class="text-sm text-gray-600">Aplica o Ebook LinkedIn Estratégico para posicionar sua nova versão no mercado.</p>
+                    <!-- Step 6 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white p-8 rounded-lg shadow-sm border-t-4 border-navy-900 h-full flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                             <div class="absolute top-0 right-0 p-4 opacity-10 font-serif text-6xl text-navy-900 font-bold -mt-2 -mr-2">06</div>
+                            <h3 class="font-bold text-navy-900 text-xl mb-3 relative z-10">O Plano de Ação</h3>
+                            <p class="text-sm text-gray-600 relative z-10">Recebe diretrizes práticas e personalizadas para o seu momento.</p>
+                        </div>
+                    </div>
+                    <!-- Step 7 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white p-8 rounded-lg shadow-sm border-t-4 border-gold h-full flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                            <div class="absolute top-0 right-0 p-4 opacity-10 font-serif text-6xl text-gold font-bold -mt-2 -mr-2">07</div>
+                            <h3 class="font-bold text-navy-900 text-xl mb-3 relative z-10">A Visão de Futuro</h3>
+                            <p class="text-sm text-gray-600 relative z-10">Estabelece objetivos de carreira claros e alcançáveis.</p>
+                        </div>
+                    </div>
+                    <!-- Step 8 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white p-8 rounded-lg shadow-sm border-t-4 border-navy-900 h-full flex flex-col relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                            <div class="absolute top-0 right-0 p-4 opacity-10 font-serif text-6xl text-navy-900 font-bold -mt-2 -mr-2">08</div>
+                            <h3 class="font-bold text-navy-900 text-xl mb-3 relative z-10">A Execução</h3>
+                            <p class="text-sm text-gray-600 relative z-10">Aplica o Ebook LinkedIn Estratégico para posicionar sua nova versão no mercado.</p>
                         </div>
                     </div>
                 </div>
+                <!-- Pagination -->
+                <div class="swiper-pagination !bottom-0"></div>
+                <!-- Navigation Arrows -->
+                <div class="hidden md:block swiper-button-next"></div>
+                <div class="hidden md:block swiper-button-prev"></div>
             </div>
         </div>
     </section>
@@ -601,7 +572,6 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
                         <div class="bg-beige-light p-8 rounded shadow-sm border border-transparent hover:border-gold transition-colors h-full flex flex-col text-center md:text-left">
                             <div class="text-gold text-4xl font-serif mb-4 leading-none">“</div>
                             <p class="text-gray-700 italic text-lg flex-grow">Minha liderança mudou e isso refletiu de forma muito positiva no desempenho do meu time.</p>
-                             <!-- Removido o bloco de "Líder Verificado" aqui -->
                         </div>
                     </div>
                     <!-- Depoimento 2 -->
@@ -609,7 +579,6 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
                         <div class="bg-beige-light p-8 rounded shadow-sm border border-transparent hover:border-gold transition-colors h-full flex flex-col text-center md:text-left">
                             <div class="text-gold text-4xl font-serif mb-4 leading-none">“</div>
                             <p class="text-gray-700 italic text-lg flex-grow">Depois de me conhecer realmente, passei a me posicionar melhor e fui promovido.</p>
-                             <!-- Removido o bloco de "Profissional Verificado" aqui -->
                         </div>
                     </div>
                     <!-- Depoimento 3 -->
@@ -617,7 +586,6 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
                         <div class="bg-beige-light p-8 rounded shadow-sm border border-transparent hover:border-gold transition-colors h-full flex flex-col text-center md:text-left">
                             <div class="text-gold text-4xl font-serif mb-4 leading-none">“</div>
                             <p class="text-gray-700 italic text-lg flex-grow">É como se tivessem acendido uma luz. Eu me enxerguei pela primeira vez.</p>
-                            <!-- Removido o bloco de "Profissional Verificado" aqui -->
                         </div>
                     </div>
                 </div>
@@ -665,7 +633,6 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
                         </li>
                     </ul>
 
-                    <!-- Botão Ajustado: Adicionado rounded-full -->
                     <a href="#" class="btn-premium block w-full bg-gold text-navy-900 font-bold text-lg py-4 rounded-full shadow-lg mb-4 hover:shadow-xl hover:bg-gold-light transition-all">
                         QUERO CLAREZA PARA 2026
                     </a>
@@ -770,7 +737,9 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
             </a>
 
             <div class="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-                <div class="font-serif text-lg text-white mb-4 md:mb-0">RB</div>
+                <div class="mb-4 md:mb-0">
+                    <img src="http://midias.lcai.com.br/images/2025/11/24/Logo-RB-Branco.png" alt="Ricardo Borges" class="h-8 md:h-10 w-auto">
+                </div>
                 <div class="space-x-4">
                     <a href="#" class="hover:text-gold transition-colors">Termos de Uso</a>
                     <a href="#" class="hover:text-gold transition-colors">Política de Privacidade</a>
@@ -843,7 +812,7 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
             }
         });
 
-        // Initialize Swiper (Carousel)
+        // Initialize Swiper (Testimonials)
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 1, // Mobile (padrão)
             spaceBetween: 30,
@@ -871,49 +840,34 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
                 },
             },
         });
+
+        // Initialize Swiper (Process / Como Funciona)
+        var processSwiper = new Swiper(".processSwiper", {
+            slidesPerView: 1, 
+            spaceBetween: 20,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2, 
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 3, 
+                    spaceBetween: 30,
+                },
+            },
+        });
     </script>
 </body>
-</html>--- START OF FILE components/AboutCombo.tsx ---
-
-import React from 'react';
-import Reveal from './ui/Reveal';
-
-const AboutCombo: React.FC = () => {
-  return (
-    <section id="sobre" className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <Reveal className="max-w-5xl mx-auto text-center">
-          <h2 className="font-serif text-3xl md:text-4xl text-navy-900 mb-6">
-            O que é o <span className="italic text-gold">Combo</span> Identidade & Direção
-          </h2>
-          <p className="text-lg text-gray-600 mb-12">
-            Um processo completo para organizar sua identidade e ganhar direção prática para 2026.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-6 text-left">
-            <div className="bg-beige-light p-8 border-l-4 border-gold">
-              <h3 className="font-bold text-navy-900 text-xl mb-2">Análise de perfil de identidade</h3>
-              <p className="text-gray-600">
-                4 relatórios completos que fazem uma leitura profunda de como você está se posicionando com relação às pessoas e ao ambiente + Devolutiva Individual com mentor, mostrando todos as nuances do seu perfil predominante.
-              </p>
-            </div>
-            <div className="bg-beige-light p-8 border-l-4 border-gold">
-              <h3 className="font-bold text-navy-900 text-xl mb-2">Direcionamento</h3>
-              <p className="text-gray-600">
-                Para quem não sabe para onde está indo, qualquer caminho serve...<br />Mas a sua carreira exige direção. Aqui, definimos sua rota com estratégia e consistência para que você faça as escolhas certas, alinhadas ao seu propósito.
-              </p>
-            </div>
-            <div className="bg-beige-light p-8 border-l-4 border-gold">
-              <h3 className="font-bold text-navy-900 text-xl mb-2">Ebook Linkedin Estratégico</h3>
-              <p className="text-gray-600">
-                Domine seu posicionamento profissional. Seja para crescer onde está ou buscar novos desafios, este guia ensina a transformar sua autoridade em oportunidades reais.
-              </p>
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-};
-
-export default AboutCombo;
+</html>
