@@ -1,7 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Reveal from './ui/Reveal';
 
 const Offer: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  });
+
+  const openModal = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = '';
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // REPLACE THIS WITH YOUR HOTMART CHECKOUT URL
+    const hotmartBaseUrl = "https://pay.hotmart.com/SEU_CODIGO_AQUI";
+    
+    // Clean phone number (remove non-digits)
+    const cleanPhone = formData.phone.replace(/\D/g, '');
+
+    // Construct URL with parameters (Hotmart uses 'name', 'email', 'phoneac' or 'tel')
+    // Using standard mapping: name, email, phoneac
+    const finalUrl = `${hotmartBaseUrl}?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&phoneac=${encodeURIComponent(cleanPhone)}`;
+    
+    window.location.href = finalUrl;
+  };
+
   return (
     <section id="oferta" className="py-24 bg-navy-900 text-white relative overflow-hidden">
       {/* Background radial glow */}
@@ -27,11 +68,7 @@ const Offer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
-                4 Relatórios Completos
-              </li>
-              <li className="flex items-center gap-3">
-                <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
-                Dossiê Completo
+                4 Relatórios Completos da sua Identidade
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
@@ -43,13 +80,86 @@ const Offer: React.FC = () => {
               </li>
             </ul>
 
-            <a href="#" className="btn-premium block w-full bg-gold text-navy-900 font-bold text-lg py-4 rounded-full shadow-lg mb-4 hover:shadow-xl hover:bg-gold-light transition-all">
+            <button onClick={openModal} className="btn-premium block w-full bg-gold text-navy-900 font-bold text-lg py-4 rounded-full shadow-lg mb-4 hover:shadow-xl hover:bg-gold-light transition-all">
               QUERO CLAREZA PARA 2026
-            </a>
+            </button>
             <p className="text-xs text-gray-500">Pagamento seguro. Acesso imediato.</p>
           </div>
         </Reveal>
       </div>
+
+      {/* Modal Overlay */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-navy-900/80 backdrop-blur-sm p-4">
+          <div className="bg-white w-full max-w-md rounded-lg shadow-2xl overflow-hidden relative animate-fade-in-up">
+            {/* Close Button */}
+            <button onClick={closeModal} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            
+            <div className="p-8">
+              <div className="text-center mb-6">
+                <h3 className="font-serif text-2xl text-navy-900 mb-2">Quase lá...</h3>
+                <p className="text-gray-600 text-sm">Preencha seus dados para finalizar sua inscrição.</p>
+              </div>
+              
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition-all text-gray-900"
+                    placeholder="Seu nome"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition-all text-gray-900"
+                    placeholder="seu@email.com"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">WhatsApp / Telefone</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition-all text-gray-900"
+                    placeholder="(00) 00000-0000"
+                  />
+                </div>
+                
+                <button type="submit" className="w-full bg-gold text-navy-900 font-bold py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-gold-light transition-all transform hover:-translate-y-1 mt-4">
+                  CONCLUIR
+                </button>
+                
+                <p className="text-xs text-center text-gray-400 mt-4">
+                  Você será redirecionado para o ambiente seguro da Hotmart.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

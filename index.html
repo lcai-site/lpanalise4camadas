@@ -95,6 +95,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
         .btn-premium::after {
             content: '';
@@ -157,6 +158,14 @@
         .swiper-button-next, .swiper-button-prev {
             color: #CC9933;
         }
+
+        /* Modal Styles */
+        #checkoutModal {
+            display: none;
+        }
+        #checkoutModal.flex {
+            display: flex;
+        }
     </style>
 <script type="importmap">
 {
@@ -190,9 +199,9 @@
                 <a href="#relatorios" class="hover:text-gold transition-colors">Relatórios</a>
                 <a href="#mentor" class="hover:text-gold transition-colors">Mentor</a>
             </nav>
-            <a href="#oferta" class="bg-transparent border border-gold text-gold px-4 py-2 text-xs md:text-sm md:px-6 font-semibold rounded-full hover:bg-gold hover:text-navy-900 transition-all duration-300 flex-shrink-0 text-center whitespace-nowrap">
+            <button onclick="openCheckoutModal()" class="bg-transparent border border-gold text-gold px-4 py-2 text-xs md:text-sm md:px-6 font-semibold rounded-full hover:bg-gold hover:text-navy-900 transition-all duration-300 flex-shrink-0 text-center whitespace-nowrap">
                 GARANTIR VAGA
-            </a>
+            </button>
         </div>
     </header>
 
@@ -239,9 +248,9 @@
 
                 <!-- Botão CTA -->
                 <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 relative z-30 mt-4 md:mt-0">
-                    <a href="#oferta" class="btn-premium bg-gold text-navy-900 px-8 py-4 font-bold text-center rounded-full shadow-lg shadow-gold/20 hover:shadow-gold/40 hover:-translate-y-1 transform transition-all w-full md:w-auto">
+                    <button onclick="openCheckoutModal()" class="btn-premium bg-gold text-navy-900 px-8 py-4 font-bold text-center rounded-full shadow-lg shadow-gold/20 hover:shadow-gold/40 hover:-translate-y-1 transform transition-all w-full md:w-auto">
                         QUERO ENCONTRAR MINHA VERDADEIRA IDENTIDADE
-                    </a>
+                    </button>
                 </div>
                 
                 <p class="mt-4 text-xs md:text-sm text-gray-400">Condição única para quem quer decidir seu futuro com maturidade e Inteligência Emocional.</p>
@@ -431,9 +440,9 @@
             <div class="text-center md:text-left reveal">
                 <h2 class="font-serif text-4xl text-navy-900 mb-6">Encontre seu Norte.</h2>
                 <p class="text-gray-600 text-lg mb-8">Se você quer clareza para avançar, este processo não é um luxo, é uma necessidade estratégica.</p>
-                <a href="#oferta" class="inline-block border-b-2 border-gold text-navy-900 font-bold hover:text-gold transition-colors pb-1">
+                <button onclick="openCheckoutModal()" class="inline-block border-b-2 border-gold text-navy-900 font-bold hover:text-gold transition-colors pb-1">
                     GARANTIR MINHA VAGA &rarr;
-                </a>
+                </button>
             </div>
         </div>
     </section>
@@ -633,9 +642,9 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
                         </li>
                     </ul>
 
-                    <a href="#" class="btn-premium block w-full bg-gold text-navy-900 font-bold text-lg py-4 rounded-full shadow-lg mb-4 hover:shadow-xl hover:bg-gold-light transition-all">
+                    <button onclick="openCheckoutModal()" class="btn-premium block w-full bg-gold text-navy-900 font-bold text-lg py-4 rounded-full shadow-lg mb-4 hover:shadow-xl hover:bg-gold-light transition-all">
                         QUERO CLAREZA PARA 2026
-                    </a>
+                    </button>
                     <p class="text-xs text-gray-500">Pagamento seguro. Acesso imediato.</p>
                 </div>
             </div>
@@ -732,9 +741,9 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
             <h2 class="font-serif text-3xl md:text-4xl mb-6">Se 2026 precisa ser diferente, comece pela <span class="italic text-gold">clareza</span> que sustenta todas as suas decisões.</h2>
             
             <!-- Botão Ajustado: Adicionado rounded-full -->
-            <a href="#oferta" class="inline-block bg-gold text-navy-900 font-bold px-10 py-4 rounded-full shadow-lg hover:bg-white transition-all transform hover:-translate-y-1 mb-16">
+            <button onclick="openCheckoutModal()" class="inline-block bg-gold text-navy-900 font-bold px-10 py-4 rounded-full shadow-lg hover:bg-white transition-all transform hover:-translate-y-1 mb-16">
                 QUERO CLAREZA E DIREÇÃO PARA 2026
-            </a>
+            </button>
 
             <div class="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
                 <div class="mb-4 md:mb-0">
@@ -751,11 +760,103 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
         </div>
     </footer>
 
+    <!-- MODAL DE CHECKOUT -->
+    <div id="checkoutModal" class="fixed inset-0 z-[100] items-center justify-center bg-navy-900/80 backdrop-blur-sm p-4">
+        <div class="bg-white w-full max-w-md rounded-lg shadow-2xl overflow-hidden relative animate-fade-in-up">
+            <!-- Close Button -->
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <div class="p-8">
+                <div class="text-center mb-6">
+                    <h3 class="font-serif text-2xl text-navy-900 mb-2">Quase lá...</h3>
+                    <p class="text-gray-600 text-sm">Preencha seus dados para finalizar sua inscrição.</p>
+                </div>
+                
+                <form id="checkoutForm" onsubmit="submitToHotmart(event)" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+                        <input type="text" id="name" name="name" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition-all"
+                               placeholder="Seu nome">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+                        <input type="email" id="email" name="email" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition-all"
+                               placeholder="seu@email.com">
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">WhatsApp / Telefone</label>
+                        <input type="tel" id="phone" name="phone" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition-all"
+                               placeholder="(00) 00000-0000">
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-gold text-navy-900 font-bold py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-gold-light transition-all transform hover:-translate-y-1 mt-4">
+                        CONCLUIR
+                    </button>
+                    
+                    <p class="text-xs text-center text-gray-400 mt-4">
+                        Você será redirecionado para o ambiente seguro da Hotmart.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <!-- SwiperJS JS (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
+        // --- MODAL LOGIC ---
+        function openCheckoutModal() {
+            const modal = document.getElementById('checkoutModal');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeCheckoutModal() {
+            const modal = document.getElementById('checkoutModal');
+            modal.classList.remove('flex');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close on click outside
+        document.getElementById('checkoutModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCheckoutModal();
+            }
+        });
+
+        function submitToHotmart(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            // Clean phone (remove non-digits)
+            const cleanPhone = phone.replace(/\D/g, '');
+            
+            // --- ATENÇÃO: SUBSTITUA O LINK ABAIXO PELO SEU LINK DO CHECKOUT HOTMART ---
+            const hotmartBaseUrl = "https://pay.hotmart.com/SEU_CODIGO_AQUI"; 
+            
+            // Construct URL with parameters
+            const finalUrl = `${hotmartBaseUrl}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phoneac=${encodeURIComponent(cleanPhone)}`;
+            
+            // Redirect
+            window.location.href = finalUrl;
+        }
+
+        // --- EXISTING LOGIC ---
+
         // Scroll Reveal Animation
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
@@ -870,4 +971,172 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
         });
     </script>
 </body>
-</html>
+</html>--- START OF FILE components/Offer.tsx ---
+
+import React, { useState } from 'react';
+import Reveal from './ui/Reveal';
+
+const Offer: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  });
+
+  const openModal = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = '';
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // REPLACE THIS WITH YOUR HOTMART CHECKOUT URL
+    const hotmartBaseUrl = "https://pay.hotmart.com/SEU_CODIGO_AQUI";
+    
+    // Clean phone number (remove non-digits)
+    const cleanPhone = formData.phone.replace(/\D/g, '');
+
+    // Construct URL with parameters (Hotmart uses 'name', 'email', 'phoneac' or 'tel')
+    // Using standard mapping: name, email, phoneac
+    const finalUrl = `${hotmartBaseUrl}?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&phoneac=${encodeURIComponent(cleanPhone)}`;
+    
+    window.location.href = finalUrl;
+  };
+
+  return (
+    <section id="oferta" className="py-24 bg-navy-900 text-white relative overflow-hidden">
+      {/* Background radial glow */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-full max-h-[600px] bg-navy-800 rounded-full blur-3xl opacity-50"></div>
+
+      <div className="container mx-auto px-6 relative z-10 text-center">
+        <span className="inline-block py-1 px-3 border border-gold text-gold text-xs tracking-widest mb-6">BLACK FRIDAY</span>
+        <h2 className="font-serif text-3xl md:text-5xl mb-2">Investimento</h2>
+        <p className="text-gray-400 mb-10">Pela última vez neste valor.</p>
+
+        <Reveal className="max-w-lg mx-auto bg-white text-navy-900 rounded-lg p-1 pb-0 shadow-2xl">
+          <div className="bg-white p-8 md:p-12 rounded-lg border border-gray-100">
+            <div className="flex justify-center items-baseline mb-8">
+              <span className="text-xl text-gray-500 font-medium align-top">R$</span>
+              <span className="text-6xl md:text-7xl font-bold text-navy-900 tracking-tight">497</span>
+              <span className="text-xl text-gray-500 font-medium">,00</span>
+            </div>
+
+            <ul className="text-left space-y-4 mb-10 text-gray-600">
+              <li className="flex items-center gap-3">
+                <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                Devolutiva Individual
+              </li>
+              <li className="flex items-center gap-3">
+                <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                4 Relatórios Completos da sua Identidade
+              </li>
+              <li className="flex items-center gap-3">
+                <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                Ebook Linkedin Estratégico
+              </li>
+              <li className="flex items-center gap-3 font-semibold text-navy-900">
+                <svg className="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
+                Garantia de Clareza
+              </li>
+            </ul>
+
+            <button onClick={openModal} className="btn-premium block w-full bg-gold text-navy-900 font-bold text-lg py-4 rounded-full shadow-lg mb-4 hover:shadow-xl hover:bg-gold-light transition-all">
+              QUERO CLAREZA PARA 2026
+            </button>
+            <p className="text-xs text-gray-500">Pagamento seguro. Acesso imediato.</p>
+          </div>
+        </Reveal>
+      </div>
+
+      {/* Modal Overlay */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-navy-900/80 backdrop-blur-sm p-4">
+          <div className="bg-white w-full max-w-md rounded-lg shadow-2xl overflow-hidden relative animate-fade-in-up">
+            {/* Close Button */}
+            <button onClick={closeModal} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            
+            <div className="p-8">
+              <div className="text-center mb-6">
+                <h3 className="font-serif text-2xl text-navy-900 mb-2">Quase lá...</h3>
+                <p className="text-gray-600 text-sm">Preencha seus dados para finalizar sua inscrição.</p>
+              </div>
+              
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition-all text-gray-900"
+                    placeholder="Seu nome"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition-all text-gray-900"
+                    placeholder="seu@email.com"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">WhatsApp / Telefone</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-gold focus:border-transparent outline-none transition-all text-gray-900"
+                    placeholder="(00) 00000-0000"
+                  />
+                </div>
+                
+                <button type="submit" className="w-full bg-gold text-navy-900 font-bold py-4 rounded-full shadow-lg hover:shadow-xl hover:bg-gold-light transition-all transform hover:-translate-y-1 mt-4">
+                  CONCLUIR
+                </button>
+                
+                <p className="text-xs text-center text-gray-400 mt-4">
+                  Você será redirecionado para o ambiente seguro da Hotmart.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default Offer;
