@@ -48,7 +48,7 @@
                         sans: ['"Montserrat"', 'sans-serif'],
                     },
                     backgroundImage: {
-                        'compass-pattern': "url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'%23CC9933\\' fill-opacity=\\'0.05\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                        'compass-pattern': "url('data:image/svg+xml,%3Csvg width=\\'60\\' height=\\'60\\' viewBox=\\'0 0 60 60\\' xmlns=\\'http://www.w3.org/2000/svg\\'%3E%3Cg fill=\\'%23CC9933\\' fill-opacity=\\'0.05\\'%3E%3Cpath d=\\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
                     }
                 }
             }
@@ -747,7 +747,7 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
 
             <div class="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
                 <div class="mb-4 md:mb-0">
-                    <img src="http://midias.lcai.com.br/images/2025/11/24/Logo-RB-Branco.png" alt="Ricardo Borges" class="h-8 md:h-10 w-auto">
+                    <img src="http://midias.lcai.com.br/images/2025/11/24/Logo-RB-Branco.png" alt="Ricardo Borges" class="h-8 md:h-12 w-auto">
                 </div>
                 <div class="space-x-4">
                     <a href="#" class="hover:text-gold transition-colors">Termos de Uso</a>
@@ -844,12 +844,21 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
             
             // Clean phone (remove non-digits)
             const cleanPhone = phone.replace(/\D/g, '');
+            let ddd = '';
+            let number = '';
+
+            if (cleanPhone.length >= 2) {
+              ddd = cleanPhone.substring(0, 2);
+              number = cleanPhone.substring(2);
+            } else {
+              number = cleanPhone;
+            }
             
-            // --- ATENÇÃO: SUBSTITUA O LINK ABAIXO PELO SEU LINK DO CHECKOUT HOTMART ---
-            const hotmartBaseUrl = "https://pay.hotmart.com/SEU_CODIGO_AQUI"; 
+            // --- LINK HOTMART CORRIGIDO ---
+            const hotmartBaseUrl = "https://pay.hotmart.com/F103135995J"; 
             
             // Construct URL with parameters
-            const finalUrl = `${hotmartBaseUrl}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phoneac=${encodeURIComponent(cleanPhone)}`;
+            const finalUrl = `${hotmartBaseUrl}?checkoutMode=10&name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phoneac=${encodeURIComponent(ddd)}&phonenumber=${encodeURIComponent(number)}`;
             
             // Redirect
             window.location.href = finalUrl;
@@ -971,9 +980,12 @@ O comportamento humano completou o que faltava. Foi aí que meus resultados come
         });
     </script>
 </body>
-</html>--- START OF FILE components/Offer.tsx ---
-
-import React, { useState } from 'react';
+</html>
+<changes>
+  <change>
+    <file>components/Offer.tsx</file>
+    <description>Fix Hotmart link ID and implement DDD/Phone number splitting logic in React component.</description>
+    <content><![CDATA[import React, { useState } from 'react';
 import Reveal from './ui/Reveal';
 
 const Offer: React.FC = () => {
@@ -1006,14 +1018,23 @@ const Offer: React.FC = () => {
     e.preventDefault();
     
     // REPLACE THIS WITH YOUR HOTMART CHECKOUT URL
-    const hotmartBaseUrl = "https://pay.hotmart.com/SEU_CODIGO_AQUI";
+    const hotmartBaseUrl = "https://pay.hotmart.com/F103135995J";
     
     // Clean phone number (remove non-digits)
     const cleanPhone = formData.phone.replace(/\D/g, '');
+    let ddd = '';
+    let number = '';
+
+    if (cleanPhone.length >= 2) {
+      ddd = cleanPhone.substring(0, 2);
+      number = cleanPhone.substring(2);
+    } else {
+      number = cleanPhone;
+    }
 
     // Construct URL with parameters (Hotmart uses 'name', 'email', 'phoneac' or 'tel')
     // Using standard mapping: name, email, phoneac
-    const finalUrl = `${hotmartBaseUrl}?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&phoneac=${encodeURIComponent(cleanPhone)}`;
+    const finalUrl = `${hotmartBaseUrl}?checkoutMode=10&name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&phoneac=${encodeURIComponent(ddd)}&phonenumber=${encodeURIComponent(number)}`;
     
     window.location.href = finalUrl;
   };
@@ -1139,4 +1160,6 @@ const Offer: React.FC = () => {
   );
 };
 
-export default Offer;
+export default Offer;]]></content>
+  </change>
+</changes>
