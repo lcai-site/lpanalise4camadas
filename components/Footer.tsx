@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
           <div className="mb-4 md:mb-0">
-            <img src="http://midias.lcai.com.br/images/2025/11/24/Logo-RB-Branco.png" alt="Ricardo Borges" className="h-8 md:h-10 w-auto" />
+            <img src="http://midias.lcai.com.br/images/2025/11/24/Logo-RB-Branco.png" alt="Ricardo Borges" className="h-8 md:h-12 w-auto" />
           </div>
           <div className="space-x-4">
             <a href="#" className="hover:text-gold transition-colors">Termos de Uso</a>

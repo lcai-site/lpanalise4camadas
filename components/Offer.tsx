@@ -30,15 +30,24 @@ const Offer: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // REPLACE THIS WITH YOUR HOTMART CHECKOUT URL
-    const hotmartBaseUrl = "https://pay.hotmart.com/SEU_CODIGO_AQUI";
+    // CORRECT HOTMART CHECKOUT URL
+    const hotmartBaseUrl = "https://pay.hotmart.com/F103135995J";
     
     // Clean phone number (remove non-digits)
     const cleanPhone = formData.phone.replace(/\D/g, '');
+    let ddd = '';
+    let number = '';
+
+    if (cleanPhone.length >= 2) {
+      ddd = cleanPhone.substring(0, 2);
+      number = cleanPhone.substring(2);
+    } else {
+      number = cleanPhone;
+    }
 
     // Construct URL with parameters (Hotmart uses 'name', 'email', 'phoneac' or 'tel')
-    // Using standard mapping: name, email, phoneac
-    const finalUrl = `${hotmartBaseUrl}?name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&phoneac=${encodeURIComponent(cleanPhone)}`;
+    // Using standard mapping: name, email, phoneac, phonenumber
+    const finalUrl = `${hotmartBaseUrl}?checkoutMode=10&name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}&phoneac=${encodeURIComponent(ddd)}&phonenumber=${encodeURIComponent(number)}`;
     
     window.location.href = finalUrl;
   };
