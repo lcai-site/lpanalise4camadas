@@ -79,7 +79,7 @@ const Offer: React.FC = () => {
                 4 Relatórios Completos da sua Identidade
               </li>
               <li className="flex items-center gap-3">
-                <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
+                <span className="text-xl">🎁</span>
                 Ebook Linkedin Estratégico
               </li>
               <li className="flex items-center gap-3 font-semibold text-navy-900">
