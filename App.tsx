@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Marquee from './components/Marquee';
 import AboutCombo from './components/AboutCombo';
 import Benefits from './components/Benefits';
 import Reports from './components/Reports';
@@ -20,7 +19,6 @@ const App: React.FC = () => {
       <Header />
       <main>
         <Hero />
-        <Marquee />
         <AboutCombo />
         <Benefits />
         <Reports />

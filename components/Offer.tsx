@@ -58,15 +58,14 @@ const Offer: React.FC = () => {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-full max-h-[600px] bg-navy-800 rounded-full blur-3xl opacity-50"></div>
 
       <div className="container mx-auto px-6 relative z-10 text-center">
-        <span className="inline-block py-1 px-3 border border-gold text-gold text-xs tracking-widest mb-6">BLACK FRIDAY</span>
-        <h2 className="font-serif text-3xl md:text-5xl mb-2">Investimento</h2>
-        <p className="text-gray-400 mb-10">Pela última vez neste valor.</p>
+        
+        <h2 className="font-serif text-3xl md:text-5xl mb-12">Investimento</h2>
 
         <Reveal className="max-w-lg mx-auto bg-white text-navy-900 rounded-lg p-1 pb-0 shadow-2xl">
           <div className="bg-white p-8 md:p-12 rounded-lg border border-gray-100">
             <div className="flex justify-center items-baseline mb-8">
               <span className="text-xl text-gray-500 font-medium align-top">R$</span>
-              <span className="text-6xl md:text-7xl font-bold text-navy-900 tracking-tight">497</span>
+              <span className="text-6xl md:text-7xl font-bold text-navy-900 tracking-tight">647</span>
               <span className="text-xl text-gray-500 font-medium">,00</span>
             </div>
 

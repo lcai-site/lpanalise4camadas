@@ -20,11 +20,7 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10 flex flex-col md:grid md:grid-cols-2 md:gap-12 items-center h-full justify-end md:justify-center pb-8 md:pb-0">
         {/* Content Block */}
         <Reveal className="w-full md:text-left text-center flex flex-col z-30 mb-0 md:mb-12">
-          {/* Black Friday Tag */}
-          <div className="self-center md:self-start inline-block px-3 py-1 border border-gold/30 text-gold text-xs tracking-widest mb-4 bg-navy-800/50">
-            BLACK FRIDAY 2025
-          </div>
-
+          
           {/* Title */}
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-4">
             A decisão mais <span className="italic text-gold">importante</span> da sua carreira é entender{' '}
