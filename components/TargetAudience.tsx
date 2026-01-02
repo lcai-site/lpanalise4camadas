@@ -16,7 +16,7 @@ const TargetAudience: React.FC = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <Reveal>
-          <div className="bg-navy-900 text-white p-10 rounded-sm relative overflow-hidden">
+          <div className="bg-forest text-white p-10 rounded-sm relative overflow-hidden">
             <div className="absolute -right-10 -top-10 w-40 h-40 bg-gold opacity-20 rounded-full blur-3xl"></div>
             <h3 className="font-serif text-3xl mb-6">Este processo é para você que:</h3>
             <ul className="space-y-4 font-light">
@@ -31,11 +31,11 @@ const TargetAudience: React.FC = () => {
         </Reveal>
         
         <Reveal className="text-center md:text-left">
-          <h2 className="font-serif text-4xl text-navy-900 mb-6">Encontre seu Norte.</h2>
+          <h2 className="font-serif text-4xl text-forest mb-6">Encontre seu Norte.</h2>
           <p className="text-gray-600 text-lg mb-8">
             Se você quer clareza para avançar, este processo não é um luxo, é uma necessidade estratégica.
           </p>
-          <a href="#oferta" className="inline-block border-b-2 border-gold text-navy-900 font-bold hover:text-gold transition-colors pb-1">
+          <a href="#oferta" className="inline-block border-b-2 border-gold text-forest font-bold hover:text-gold transition-colors pb-1">
             GARANTIR MINHA VAGA &rarr;
           </a>
         </Reveal>

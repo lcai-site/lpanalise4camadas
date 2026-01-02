@@ -19,7 +19,7 @@ const Benefits: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-navy-900 text-white relative">
+    <section className="py-20 bg-forest text-white relative">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-30"></div>
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
         <Reveal>
@@ -37,7 +37,7 @@ const Benefits: React.FC = () => {
         </Reveal>
 
         <Reveal delay={200} className="relative">
-          <div className="border border-gold/30 p-8 rounded bg-navy-800/50 backdrop-blur text-center relative z-10">
+          <div className="border border-gold/30 p-8 rounded bg-forest-dark/50 backdrop-blur text-center relative z-10">
             <svg className="w-16 h-16 text-gold mx-auto mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
@@ -48,7 +48,7 @@ const Benefits: React.FC = () => {
             </p>
           </div>
           {/* Decorative Elements */}
-          <div className="absolute -z-0 -top-4 -right-4 w-full h-full border border-gray-700/50 rounded"></div>
+          <div className="absolute -z-0 -top-4 -right-4 w-full h-full border border-gold/10 rounded"></div>
         </Reveal>
       </div>
     </section>

@@ -3,8 +3,8 @@ import Reveal from './ui/Reveal';
 
 const Mentor: React.FC = () => {
   return (
-    <section id="mentor" className="py-24 bg-navy-900 text-white relative overflow-hidden">
-      {/* Background Texture (simulated with CSS pattern if image fails, but using the link provided in logic) */}
+    <section id="mentor" className="py-24 bg-forest text-white relative overflow-hidden">
+      {/* Background Texture */}
       <div 
         className="absolute inset-0 opacity-5"
         style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/cubes.png')" }}
@@ -13,7 +13,7 @@ const Mentor: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <Reveal className="w-full md:w-1/3">
-            <div className="aspect-[3/4] bg-gradient-to-t from-black to-navy-800 border-4 border-navy-800 shadow-2xl relative overflow-hidden">
+            <div className="aspect-[3/4] bg-gradient-to-t from-black to-forest-dark border-4 border-forest-dark shadow-2xl relative overflow-hidden">
               <img 
                 src="http://midias.lcai.com.br/images/2025/11/24/2-Foto.webp" 
                 alt="Ricardo Borges" 

@@ -15,8 +15,8 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 bg-navy-900 border-b border-white/10 transition-all duration-300 ${
-        scrolled ? 'shadow-lg' : ''
+      className={`fixed w-full z-50 bg-forest border-b border-white/10 transition-all duration-300 ${
+        scrolled ? 'shadow-lg bg-forest-dark' : ''
       }`}
       id="navbar"
     >
@@ -53,7 +53,7 @@ const Header: React.FC = () => {
         {/* CTA Button */}
         <a
           href="#oferta"
-          className="bg-transparent border border-gold text-gold px-4 py-2 text-xs md:text-sm md:px-6 font-semibold rounded-full hover:bg-gold hover:text-navy-900 transition-all duration-300 flex-shrink-0 text-center whitespace-nowrap"
+          className="bg-transparent border border-gold text-gold px-4 py-2 text-xs md:text-sm md:px-6 font-semibold rounded-full hover:bg-gold hover:text-forest-dark transition-all duration-300 flex-shrink-0 text-center whitespace-nowrap"
         >
           GARANTIR VAGA
         </a>

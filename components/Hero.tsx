@@ -3,7 +3,7 @@ import Reveal from './ui/Reveal';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-[85vh] md:min-h-screen flex items-end bg-navy-900 text-white pt-24 md:pt-32 overflow-hidden">
+    <section className="relative min-h-[85vh] md:min-h-screen flex items-end bg-forest text-white pt-24 md:pt-32 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden pb-0">
         <div className="absolute inset-0 bg-compass-pattern opacity-10"></div>
@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 relative z-30 mt-4 md:mt-0">
             <a
               href="#oferta"
-              className="btn-premium bg-gold text-navy-900 px-8 py-4 font-bold text-center rounded-full shadow-lg shadow-gold/20 hover:shadow-gold/40 hover:-translate-y-1 transform transition-all w-full md:w-auto"
+              className="btn-premium bg-gold text-forest-dark px-8 py-4 font-bold text-center rounded-full shadow-lg shadow-gold/20 hover:shadow-gold/40 hover:-translate-y-1 transform transition-all w-full md:w-auto"
             >
               QUERO ENCONTRAR MINHA VERDADEIRA IDENTIDADE
             </a>
